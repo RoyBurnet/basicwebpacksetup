@@ -1,3 +1,6 @@
-div{
-  color: red;
-}
+@import 'reset';
+@import 'base';
+@import 'header';
+@import 'showcase';
+@import 'infobox';
+@import 'footer'
