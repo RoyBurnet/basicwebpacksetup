@@ -127,7 +127,7 @@ eval("\n/**\n * When source maps are enabled, `style-loader` uses a link element
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\n__webpack_require__(/*! ./scss/main.scss */ \"./src/scss/main.scss\");\n\nalert('Hello world');\nconsole.log('hello');\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("\n\n__webpack_require__(/*! ./scss/main.scss */ \"./src/scss/main.scss\");\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 

@@ -1,0 +1,26 @@
+nav{
+  height: 70px;
+  background-color: $primary-color;
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.menu{
+  display: flex;
+  align-self: center;
+  margin-right: 10px;
+
+  &__item{
+    margin: 10px;
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: $light-secondary-color;
+    cursor: pointer;
+  }
+}
+
+a {
+  color: $light-primary-color;
+  text-decoration: none;
+}
