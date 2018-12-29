@@ -12,7 +12,7 @@ module.exports = {
   entry: { main: './src/index.js' },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[chunkhash].js'
+    filename: 'main.js'
   },
   target: "node", // update 23.12.2018
   externals: [nodeExternals()], // update 23.12.2018
@@ -40,7 +40,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin('dist', {} ),
     new MiniCssExtractPlugin({
-      filename: "style.[contenthash].css"
+      filename: "style.css"
     }),
     new HtmlWebpackPlugin({
       inject: false,
