@@ -4,8 +4,10 @@ const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const WebpackMd5Hash = require("webpack-md5-hash");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-var BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+
 
 
 
@@ -13,7 +15,7 @@ module.exports = {
   entry: { main: './src/index.js' },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js'
+    filename: '[name].[chunkhash].js',
   },
   target: "node", // update 23.12.2018
   externals: [nodeExternals()], // update 23.12.2018
@@ -39,20 +41,21 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin('dist', {} ),
+    new CleanWebpackPlugin('dist', {}),
     new MiniCssExtractPlugin({
-      filename: "style.css"
+      filename: "style[contenthash].css"
     }),
     new HtmlWebpackPlugin({
-      inject: false,
+      inject: 'body',
       hash: true,
       template: './src/index.html',
       filename: 'index.html'
     }),
     new BrowserSyncPlugin({
       host: 'localhost',
+      server: {baseDir: ['dist']},
       port: 3000,
-      proxy: 'http://localhost:8080/'
-  })
+    }),
+    new WebpackMd5Hash()
   ]
 };
