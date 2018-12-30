@@ -7,7 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const WebpackMd5Hash = require("webpack-md5-hash");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-
+const webpack = require('webpack');
 
 module.exports = {
   entry: {
@@ -59,9 +59,12 @@ module.exports = {
     }),
     new BrowserSyncPlugin({
       host: 'localhost',
-      server: {baseDir: ['dist']},
+      server: { baseDir: ['dist'] },
       port: 3000,
     }),
-    new WebpackMd5Hash()
+    new WebpackMd5Hash(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    })
   ]
 };
