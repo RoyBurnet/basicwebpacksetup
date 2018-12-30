@@ -10,7 +10,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 
 module.exports = {
-  entry: { main: './src/index.js' },
+  entry: {
+    main: './src/index.js',
+    },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[chunkhash].js',
@@ -46,8 +48,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: 'body',
       hash: true,
-      template: './src/index.html',
+      template: './src/templates/index.html',
       filename: 'index.html'
+    }),
+    new HtmlWebpackPlugin({
+      inject: 'body',
+      hash: true,
+      template: './src/templates/documentation.html',
+      filename: 'documentation.html'
     }),
     new BrowserSyncPlugin({
       host: 'localhost',

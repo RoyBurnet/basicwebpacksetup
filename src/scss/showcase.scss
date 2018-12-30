@@ -10,6 +10,15 @@
     margin-left:193px;
     margin-top: 142px;
     color: $primary-color;
+
+
+    &--center {
+      position: absolute;
+      color: $primary-color;
+      margin-left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%)
+    }
   }
 
   h1{
